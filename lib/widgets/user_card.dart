@@ -6,4 +6,10 @@ class UserCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const UserCard({required this.user, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 }
