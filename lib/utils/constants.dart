@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppConstants {
-  static const String baseUrl = "https://reqres.in/api";
+  static const String baseUrl = String.fromEnvironment('BASE_URL'); //api de prueba
   static const String loginPath = "/login";
   static const String userPath = "/user";
   static const String connectionError = "No hay conexión a internet.";

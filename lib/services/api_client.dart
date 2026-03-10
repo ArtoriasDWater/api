@@ -16,8 +16,14 @@ class ApiClient {
           if (token != null) {
             options.headers['Autorization'] = 'bearer $token';
           }
-          print("Petición: ${options.method} ${options.path}");
           return handler.next(options);
+        },
+
+        onError: (DioException e, handler) {
+          if (e.response?.statusCode == 401) {
+            _storage.deleteToken(); //limpiar el token si falla
+          }
+          return handler.next(e);
         },
       ),
     );
